@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulma Dark/Light Mode</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        /* Default Light Theme */
+        :root {
+            --bg-color: white;
+            --text-color: black;
+            --button-bg: #3273dc;
+            --button-text: white;
+            --label-color: black;
+            --title-color: black;
+        }
+
+        /* Dark Theme */
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --button-bg: #1e88e5;
+            --button-text: white;
+            --label-color: white;
+            --title-color: white;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .button {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+        }
+
+        /* Labels and Title */
+        .label {
+            color: var(--label-color);
+        }
+
+        .title {
+            color: var(--title-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container p-5">
+        <div class="field is-grouped is-flex is-justify-content-space-between">
+            <h1 class="title">
+                Compare Lists
+            </h1>
+            <button class="button is-primary" id="themeToggle">Toggle Theme</button>
+        </div>
+
+        <div class="columns">
+            <div class="column is-6">
+                <div class="field">
+                    <label class="label">List A</label>
+                    <div class="control">
+                        <input type="text" class="input">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" placeholder="List A" rows="7"></textarea>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="button is-primary">Load From File</button>
+                    <button class="button is-link">Load From URL</button>
+                </div>
+                <span class="content">Count : 0</span>
+            </div>
+            <div class="column is-6">
+                <div class="field">
+                    <label class="label">List B</label>
+                    <div class="control">
+                        <input type="text" class="input">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" placeholder="List B" rows="7"></textarea>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="button is-primary">Load From File</button>
+                    <button class="button is-link">Load From URL</button>
+                </div>
+                <span class="content">Count : 0</span>
+            </div>
+        </div>
+
+        <div class="field is-grouped is-flex is-justify-content-start is-flex-wrap-wrap">
+            <div class="control">
+                <div class="select">
+                    <select>
+                        <option>Character</option>
+                        <option>Words</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control is-flex is-align-items-center">
+                <label class="checkbox">
+                    <input type="checkbox" />
+                    Case Sensitive
+                </label>
+            </div>
+
+            <div class="control">
+                <button class="button is-primary">Compare</button>
+            </div>
+        </div>
+
+        <div class="columns mt-5">
+            <div class="column is-4">
+                <div class="field">
+                    <label class="label">Only in List A</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="List A" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="button is-primary">Download</button>
+                </div>
+            </div>
+            <div class="column is-4">
+                <div class="field">
+                    <label class="label">Only in List B</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="List B" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="button is-primary">Download</button>
+                </div>
+            </div>
+            <div class="column is-4">
+                <div class="field">
+                    <label class="label">Only in List C</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="List C" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="button is-primary">Download</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-grouped is-flex is-align-items-center is-flex-wrap-wrap">
+            <div class="control">
+                <span class="content">Matches : 0</span>
+            </div>
+            <div class="control">
+                <span class="content">Differences : 0</span>
+            </div>
+            <div class="control">
+                <button class="button is-primary">Compare</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById("themeToggle");
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+</body>
+
+</html>
